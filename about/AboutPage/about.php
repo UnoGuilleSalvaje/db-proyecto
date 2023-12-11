@@ -208,15 +208,17 @@ if (isset($_SESSION['username'])) {
      <div class="container2 <?php echo $class; ?>">
     <br>
     <h1 style="text-align: center;">Acerca de Nosotros</h1>
-        Bienvenido a GandsMovies.com, tu destino número uno para disfrutar de las mejores películas en línea.
-            <br>
-            Nos enorgullece ofrecer una amplia variedad de películas en diferentes géneros para satisfacer todos los gustos.
-            <br>
-            Nuestro equipo está comprometido con brindarte una experiencia cinematográfica excepcional,
-            <br> 
-            trabajamos arduamente para garantizar que tengas acceso a las últimas películas y clásicos 
-            atemporales, todo en un solo lugar conveniente.
-            <br><br>
+        Bienvenido a Vaniofrénicos, un espacio dedicado a la expresión artística única y provocativa. 
+        <br>
+        Nos enorgullece ser una galería de arte que desafía las convenciones y celebra la creatividad sin 
+        <br>restricciones.
+        <br>
+        Buscamos ir más allá de los límites tradicionales del arte. 
+        <br>
+        Nuestra misión es proporcionar una plataforma para las personas que desean explorar la dualidad entre cordura e insanidad, 
+        <br>llevándonos a lugares inexplorados de la mente humana.
+        <br>
+        ¡Conoce a nuestro equipo!
     </div>
 
     <div class="container">
@@ -238,16 +240,12 @@ if (isset($_SESSION['username'])) {
 
     <br><br>
     <div class="container2">
-        En GandsMovies.com, valoramos tu tiempo y comodidad. 
+    Explora nuestras exposiciones y descubre obras que desafían la percepción y cuestionan la realidad. 
         <br>
-        Nuestra plataforma está diseñada para ser fácil de usar, brindándote acceso rápido a 
-        una biblioteca extensa de películas. 
-        <br>
-        Además, nos esforzamos por mantenernos actualizados con las últimas tendencias y lanzamientos cinematográficos.
-        <br>
-        ¡Gracias por elegir GandsMovies.com! 
-        <br>
-        ¡Esperamos que disfrutes explorando nuestro catálogo y viendo tus películas favoritas!
+        Nuestro compromiso es crear un espacio inclusivo para todos aquellos que buscan la belleza en la diversidad del arte. 
+        <br>Vaniofrénicos es más que una galería, es un viaje a través de las mentes creativas y un escaparate de la expresión 
+        <br>artística en su forma más auténtica.
+        ¡Esperamos que disfrutes explorando nuestra galería y viendo obras de tus artistas favoritos!
     </div>
 
 <br><br>
@@ -261,7 +259,7 @@ if (isset($_SESSION['username'])) {
             <div class="tool-card">
                 <img src="../../media/vision.webp" alt="Visión" style="width: 350px;">
                 <h3>Visión</h3>
-                <p>Ser líderes globales en la distribución de películas, ofreciendo una experiencia única y personalizada para cada amante del cine.</p>
+                <p>Ser líderes globales en la promoción del arte vanguardista, ofreciendo una experiencia única y enriquecedora para cada apasionado del arte.</p>
                 <br>
             </div>
         </div>
@@ -269,7 +267,7 @@ if (isset($_SESSION['username'])) {
             <div class="tool-card">
                 <img src="../../media/mision.jpg" alt="Misión" style="width: 350px;">
                 <h3>Misión</h3>
-                <p>Proporcionar la más amplia variedad de películas al alcance de todos, garantizando calidad y accesibilidad en nuestro servicio.</p>
+                <p>Proporcionar una plataforma para artistas innovadores, asegurando la diversidad y la accesibilidad de obras de arte de alta calidad, para que todos puedan explorar y apreciar.</p>
                 <br>
             </div>
         </div>
@@ -277,7 +275,7 @@ if (isset($_SESSION['username'])) {
             <div class="tool-card">
                 <img src="../../media/objetivos.jpg" alt="Objetivo" style="width: 350px;">
                 <h3>Objetivo</h3>
-                <p>Innovar constantemente en nuestra plataforma para hacer que el descubrimiento y disfrute de películas sea una experiencia emocionante y fácil para todos.</p>
+                <p>Innovar constantemente en nuestra galería para hacer que la exploración y disfrute del arte contemporáneo sea una experiencia emocionante y accesible para todos.</p>
             </div>
         </div>
     </div>
