@@ -17,7 +17,7 @@ if (isset($_SESSION['username'])) {
 <head>
     <meta charSet="utf-8" />
     <title>Vaniofrénicos Espacio</title>
-    <meta name="title" content="GandsMovies.com | sitio oficual GandsMovies peliculas" />
+    <meta name="title" content="Vaniofrénicos.com | sitio oficial Vaniofrénicos Galería" />
     <meta property="og:type" content="website" />
     <link rel="icon" href="media/g.png" type="image/x-icon">
     <link rel="shortcut icon" href="media/g.png" type="image/x-icon" >
