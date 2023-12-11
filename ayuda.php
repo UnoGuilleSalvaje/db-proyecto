@@ -26,9 +26,9 @@ if (isset($_SESSION['username'])) {
 </head>
 <body>
 
-<!-- Barra de Navegación -->
+                    <!-- Barra de Navegación ----------------------------------------------------- -->
 
-<nav class="navigation__container">
+                    <nav class="navigation__container">
                         <div class="navigation__container--navs 
                             navigation__container--fixed 
                             navigation__container--top">
@@ -39,25 +39,51 @@ if (isset($_SESSION['username'])) {
                                         <div class="desktopNav__tabAndLogoContainer">
                                         <div class="insider desktopNav__tabContainer">
     <div class="insider desktopNav__tab">
-        <img src="media/10307911.png" alt="" style="width: 20px; height: 20px; margin-top: 13px; margin-left: 7px !important;">
+       
         <div class="user-menu__links">
 
             <?php
             // Verifica si el usuario está logueado
             if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-                // Usuario logueado
-                echo '<p class="maravillas-title">Bienvenido, ' . htmlspecialchars($_SESSION['username']) . '</p>';
+date_default_timezone_set('America/Mexico_City');
+// Usuario logueado
+$hora = date("H");
+$saludo = "";
+$icono = "";
+
+if ($hora < 12) {
+    $saludo = "Buenos días";
+    $icono = "fas fa-sun"; // Icono de sol para la mañana
+} elseif ($hora < 18) {
+    $saludo = "Buenas tardes";
+    $icono = "fas fa-cloud-sun"; // Icono de sol parcial para la tarde
+} else {
+    $saludo = "Buenas noches";
+    $icono = "fas fa-moon"; // Icono de luna para la noche
+}
+
+echo '<p class="maravillas-title"><i class="' . $icono . '" style="color: #58bfb5;"></i> ' . $saludo . ', ' . htmlspecialchars($_SESSION['username']) . '</p>';
+
             } else {
                 // Usuario no logueado
                 echo '<a class="user-menu-tab sign-in" href="login_registro/index.php">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">INICIAR SESIÓN </font></font></a>
-                        <span class="user-menu-tab separator">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">| </font></font></span>
-                        <a class="user-menu-tab join-dropdown" href="login_registro/index.php">
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">REGISTRARSE</font>
-                        </font></a>';
+        <i class="fas fa-sign-in-alt"></i>
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> INICIAR SESIÓN</font>
+        </font>
+      </a>
+      <span class="user-menu-tab separator">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> | </font>
+        </font>
+      </span>
+      <a class="user-menu-tab join-dropdown" href="login_registro/index.php">
+        <i class="fas fa-user-plus"></i>
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> REGISTRARSE</font>
+        </font>
+      </a>';
+
             }
             ?>
             <span class="user-menu-tab username"></span>
@@ -68,7 +94,7 @@ if (isset($_SESSION['username'])) {
                                             
                                             <a class="desktopNav__logo" href="index.php">
                                                 <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true">
-                                                    <img src="media/GANDS MOVIES ORIGINAL.png" alt=""><!--LOGO DEL SITIO-->
+                                                    <img src="media/v.png" alt=""><!--LOGO DEL SITIO-->
                                                 </span>
                                             </a>
                                             
@@ -77,13 +103,13 @@ if (isset($_SESSION['username'])) {
         <?php if (isset($_SESSION['username'])): ?>
             <div class="searchPromo__wrap">
                 <br><br>
-                <a href="logout.php" style="margin-right: 15px;"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                <a href="logout.php" class="logout-link" style="margin-right: 15px;"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
         <?php else: ?>
             <!-- Usuario no logueado: Muestra la sección de login -->
-            <a class="searchPromo desktopNav__tab" href="login.php">
-                <img class="searchPromo__image" src="media/tickets.png" alt="GandsMovies logo" />
-                <span class="maravillas-title">Descubre más</span>
+            <a class="searchPromo desktopNav__tab" style="vertical-align: inherit;" href="login_registro/index.php">
+                <img class="searchPromo__image" src="media/tickets.png" alt="logo" />
+                <span class="" style="text-decoration: none;">¡Únete!</span>
             </a>
         <?php endif; ?>
     </div>
@@ -124,28 +150,22 @@ if (isset($_SESSION['username'])) {
                                             </li>
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-1"
                                                     class="desktopNav__link mvl-flyout-button"
-                                                    href="tienda.php">Películas</a>
+                                                    href="tienda.php">Galería</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-1">
                                                 
                                                 </div>
                                             </li>
                                             <li class="desktopNav__linkWrapper ">
-                                                <a class="desktopNav__link" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Géneros
-                                                </a>
-                                                <ul class="dropdown-menu nav-flyout-container-2" aria-labelledby="dropdownMenuButton1">
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Accion">Acción</a></li>
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Comedia">Comedia</a></li>
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Drama">Drama</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-3"
-                                                    class="desktopNav__link mvl-flyout-button"
-                                                    href="#">Productos</a>
-                                                <div class="desktopNav__flyout-container nav-flyout-container-3">
-                                                 
-                                                </div>
-                                            </li>
+                            <a class="desktopNav__link" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu nav-flyout-container-2" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Retrato">Retratos</a></li>
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Paisaje">Paisajes</a></li>
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Bodegón">Bodegón</a></li>
+                            </ul>
+                        </li>
+                                            
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-4"
                                                     class="desktopNav__link mvl-flyout-button" href="about/AboutPage/about.php">Acerca de</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-4">
@@ -162,6 +182,13 @@ if (isset($_SESSION['username'])) {
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-6"
                                                     class="desktopNav__link mvl-flyout-button"
                                                     href="Contactanos/index.php">Contáctanos</a>
+                                                <div class="desktopNav__flyout-container nav-flyout-container-6">
+                                                    
+                                                </div>
+                                            </li>
+                                            <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-6"
+                                                    class="desktopNav__link mvl-flyout-button"
+                                                    href="Subasta/subasta.php">Subasta</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-6">
                                                     
                                                 </div>
@@ -184,6 +211,17 @@ if (isset($_SESSION['username'])) {
     }
     ?>
 </li>
+
+                                        </ul>
+                                    </div>
+                                <!-- Fin de links -->
+
+                                </div>
+                            </section>
+                        </div>
+                    </nav>
+
+                <!-- Fin de la barra de Navegación ---------------------------------------------------------------- -->
 
                                         </ul>
                                     </div>
@@ -217,10 +255,10 @@ if (isset($_SESSION['username'])) {
                                 </div>
                                 <div class="sets__main">
                                     <div class="sets__container " aria-live="polite" role="region">
-                                        <div class="sets__eyebrow">Soporte Gands Movies</div>
+                                        <div class="sets__eyebrow">Soporte Vaniofrenicos</div>
                                         <div class="sets__title">¿En qué podemos ayudarte?</div>
                                         <div class="sets__description">Estamos aquí para ayudarte en cada paso de tu experiencia con nosotros.
-                                             ¿Tienes preguntas sobre cómo encontrar una película, cómo realizar una compra o cualquier otro tema? 
+                                             ¿Tienes preguntas sobre cómo encontrar alguna pintura en especifico?, cómo realizar una compra o cualquier otro tema? 
                                              ¡No dudes en contactarnos! Nuestro equipo de soporte está listo para brindarte la asistencia que necesitas.</div>
                                              <div class="search-box">
                                                 <input type="text" class="search-input" placeholder="¿Cómo podemos ayudarte?" aria-label="Buscar">
@@ -247,94 +285,94 @@ if (isset($_SESSION['username'])) {
         <!-- Pregunta 1 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel1')">
-                ¿Cómo puedo comprar una película en línea?
+                ¿Cómo puedo comprar una pintura o una obra en línea?
             </div>
             <div class="panel-body" id="panel1">
-            Para comprar una película en línea en nuestra página, simplemente sigue estos sencillos pasos:
+            Para comprar una pintura u obra en línea en nuestra página, simplemente sigue estos sencillos pasos:
 
-            Busca la película que deseas comprar utilizando la barra de búsqueda o navegando a través de las categorías disponibles.
+            Busca la pintura u obra que deseas comprar utilizando la barra de búsqueda o navegando a través de las categorías disponibles.
             <br>
-            Una vez que has encontrado la película que te interesa, haz clic en ella para ver más detalles, como el formato y el precio.
+            Una vez que has encontrado la pintura u obra que te interesa, haz clic en ella para ver más detalles, como el formato y el precio.
             <br>
-            Añade la película a tu carrito de compras haciendo clic en el botón correspondiente.
+            Añade la pintura u obra a tu carrito de compras haciendo clic en el botón correspondiente.
             <br>
-            Revisa tu carrito de compras para asegurarte de que la película y la cantidad sean correctas, y procede a la página de pago.
+            Revisa tu carrito de compras para asegurarte de que la pintura u obras y la cantidad sean correctas, y procede a la página de pago.
             <br>
             En la página de pago, completa la información requerida, como tu dirección de envío y los detalles de tu tarjeta de crédito o usa nuestro sistema de pago seguro.
             <br>
-            Una vez completada la compra, recibirás una confirmación de tu pedido junto con los detalles de envío si aplica. En el caso de una descarga digital, recibirás instrucciones para acceder a tu película.
+            Una vez completada la compra, recibirás una confirmación de tu pedido junto con los detalles de envío si aplica.
             <br>
-            Esperamos que esto te ayude a comprar la película que buscas. Si tienes alguna otra pregunta o necesitas ayuda adicional, no dudes en contactarnos.
+            Esperamos que esto te ayude a comprar la pintura u obra que buscas. Si tienes alguna otra pregunta o necesitas ayuda adicional, no dudes en contactarnos.
             </div>
         </div>
 
         <!-- Pregunta 2 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel2')">
-                ¿Cómo accedo a mis películas después de comprarlas?
+                ¿Cómo accedo a mis compras después de adquirirlas?
             </div>
             <div class="panel-body" id="panel2">
-                Después de realizar una compra, puedes acceder a tus películas en la sección "Mis Compras" de tu cuenta.
+                Después de realizar una compra, puedes acceder a tus compras en la sección "Mis Compras" de tu cuenta.
             </div>
         </div>
 
         <!-- Pregunta 3 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel3')">
-                ¿Puedo ver mis películas en varios dispositivos?
+                ¿Puedo ver mis pinturas de forma digital?
             </div>
             <div class="panel-body" id="panel3">
-            Sí, puedes ver tus películas en varios dispositivos. Nuestro servicio te permite acceder a tu contenido en diferentes dispositivos para tu comodidad.
+            Sí, puedes ver tus pinturas de forma digital con la mejor calidad. Nuestro servicio te permite acceder a tu contenido en diferentes dispositivos para tu comodidad.
             </div>
         </div>
 
         <!-- Pregunta 4 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel4')">
-                ¿Cuánto tiempo tengo para ver una película después de comprarla?
+                ¿Cuánto tiempo tengo de garantia en mis compras despues de comprarlas?
             </div>
             <div class="panel-body" id="panel4">
-                Una vez que compres una película, tendrás acceso a ella indefinidamente para verla cuando quieras.
+                Dependiendo de tu compra, se te daran las especificaciones de tu garantia. Envia un correo electronico con tu factura para brindarte mass informacion
             </div>
         </div>
 
         <!-- Pregunta 5 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel5')">
-                ¿Qué hago si tengo problemas para reproducir una película?
+                ¿Qué hago si tengo problemas con alguna de mis compras?
             </div>
             <div class="panel-body" id="panel5">
-                Si experimentas problemas para reproducir una película, te recomendaría primero verificar tu conexión a internet y luego asegurarte de que estés utilizando un dispositivo compatible con nuestro servicio. Si el problema persiste, te animo a contactar a nuestro equipo de soporte técnico para recibir ayuda adicional.
+                Si experimentas problemas con una de tus compras, Te recomendaria ir a nuestro local mas cercano o en su defecto mandar un correo electronico a nuesta cuenta para obtener mas informacion y pasos mas detallados para hacer valida tu garantia
             </div>
         </div>
 
         <!-- Pregunta 6 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel6')">
-                ¿Ofrecen reembolsos si no estoy satisfecho con una película?
+                ¿Ofrecen reembolsos si no estoy satisfecho con alguna pintura u obra?
             </div>
             <div class="panel-body" id="panel6">
-                Sí, ofrecemos reembolsos si no estás satisfecho con una película, siempre y cuando cumplas con nuestras políticas de reembolso. Te recomendaría contactar a nuestro equipo de servicio al cliente para obtener más detalles y asistencia con el proceso de reembolso.
+                Sí, ofrecemos reembolsos si no estás satisfecho con alguna de sus compras, siempre y cuando cumplas con nuestras políticas de reembolso. Te recomendaría contactar a nuestro equipo de servicio al cliente para obtener más detalles y asistencia con el proceso de reembolso.
             </div>
         </div>
 
         <!-- Pregunta 7 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel7')">
-                ¿Hay restricciones geográficas para ver las películas?
+                ¿Hacen envios a todo el mundo?
             </div>
             <div class="panel-body" id="panel7">
-                Nuestras películas están disponibles globalmente, sin restricciones geográficas.
+                Si, nuestros envios son a todo el mundo.
             </div>
         </div>
 
         <!-- Pregunta 8 -->
         <div class="panel">
             <div class="panel-header" onclick="togglePanel('panel8')">
-                ¿Puedo descargar las películas para verlas sin conexión?
+                ¿Mis compras se pueden maltratar a la hora de enviarlas?
             </div>
             <div class="panel-body" id="panel8">
-                Actualmente, no ofrecemos la opción de descargar películas para verlas sin conexión.
+                No, aunque es muy poco probable de que suceda nosotros tenemos el mejor contrato con los mejores servicios de paqueteria en donde le dan mas prioridad a articulos fragiles como los nuestros
             </div>
         </div>
 
@@ -354,73 +392,69 @@ if (isset($_SESSION['username'])) {
                 ¿Cómo puedo contactar al servicio al cliente?
             </div>
             <div class="panel-body" id="panel10">
-                Puedes contactar a nuestro servicio al cliente a través del formulario en la sección "Contáctenos" o por correo electrónico a gandsmovies@gmail.com
+                Puedes contactar a nuestro servicio al cliente a través del formulario en la sección "Contáctenos" o por correo electrónico a VanioFrenicos@gmail.com
             </div>
         </div>
     </div>
 </div>
-
-<br><br><br>
-                   <!--Aqui inicia nuestro footer -->
-                <footer class="page__footer">
+<br>
+<br><br>
+                 <!--Aqui inicia nuestro footer -->
+                 <footer class="page__footer">
                     <footer class="main-footer">
                         <div class="main-footer__full-content">
                             <div class="main-footer__links"><a class="main-footer__logo" href="index.html">
                                 <span class="icon--svg main-footer__logo--svg" aria-hidden="true">
-                                      <!--Icono G-->    <img src="media/g.png" alt="" style="width: 90%; height: 96%; margin-left: 19px; ">
+                                      <!--Icono G-->    <img src="media/g.png" alt="" style="width: 120px; margin-left: 19px; ">
                                 </span></a>
                                 <nav class="main-footer__primary-links" aria-label="Primary footer navigtion">
                                     <ul>
-                                        <li class="main-footer__link"><a href="#">Inicio</a>
+                                        <li class="main-footer__link"><a href="index.php">Inicio</a>
                                         </li>
-                                        <li class="main-footer__link"><a href="#">Catálogos</a>
+                                        <li class="main-footer__link"><a href="tienda.php">Todas las Obras</a>
                                         </li>
-                                        <li class="main-footer__link"><a href="#">Estrenos</a>
+                                        <li class="main-footer__link"><a href="about/AboutPage/about.php">Acerca de</a>
                                         </li>
-                                        <li class="main-footer__link"><a href="#">Eventos Especiales</a>
+                                        <li class="main-footer__link"><a href="ayuda.php">Ayuda</a>
                                         </li>
                                     </ul>
                                 </nav>
-                                <nav class="main-footer__secondary-links" aria-label="Secondary footer navigtion">
-                                    <ul>
-                                        <li class="main-footer__link"><a href="#">Ofertas o Descuentos</a></li>
-                                        <li class="main-footer__link"><a href="#">Como Funciona</a>
-                                        </li>
-                                        <li class="main-footer__link"><a href="#">Soporte o Ayuda</a></li>
-                                        <li class="main-footer__link"><a href="#">GandsMovies.com</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <nav class="main-footer__promo-links" aria-label="Promotional footer navigtion">
-                                <div class="main-footer__promotion">
-                                        <div class="main-footer__promotion-image-wrapper">
-                                            <figure class="img__wrapper "><img
-                                                    src="media/U.png" style="width: 40px; height: 40px; margin-left: 25px;" 
-                                                   
-                                                    alt="--Imagen" class="main-footer__promotion-image" />
-                                            </figure>
-                                        </div>
-                                        <div class="main-footer__promotion-info">
-                                            <h4 class="main-footer__promotion-title">Únete a nosotros</h4>
-                                            <p class="main-footer__promotion-description"> Crea tu portal para explorar emociones intensas</p>
-                                        </div>
-                                    </div>
-                                 <!--Aqui inicia nuestro footer -->
-                                <div class="main-footer__promotion">
-                                     
-                                        <div class="main-footer__promotion-image-wrapper">
-                                            <figure class="img__wrapper "><img
-                                                    src="media/E.png" style="width: 40px; height: 40px; margin-left: 25px;"
-                                                    
-                                                    alt="Marvel Unlimited Logo" class="main-footer__promotion-image" />
-                                            </figure>
-                                        </div>
-                                        <div class="main-footer__promotion-info">
-                                            <h4 class="main-footer__promotion-title">Encuentra la Magia en cada Pantalla</h4>
-                                            <p class="main-footer__promotion-description">Encuentra +300 películas disponibles</p>
-                                        </div>
-                                    </div>
-                            </nav>
+                                <nav class="main-footer__secondary-links" aria-label="Secondary footer navigation">
+    <ul>
+        <li class="main-footer__link"><a href="#">Galerías y Exposiciones</a></li>
+        <li class="main-footer__link"><a href="#">Cómo Comprar Arte</a></li>
+        <li class="main-footer__link"><a href="#">Consultas y Soporte</a></li>
+        <li class="main-footer__link"><a href="#">Sobre Vaniofrénicos Espacio</a></li>
+    </ul>
+</nav>
+</div>
+
+<nav class="main-footer__promo-links" aria-label="Promotional footer navigation">
+    <div class="main-footer__promotion">
+        <div class="main-footer__promotion-image-wrapper">
+            <figure class="img__wrapper">
+                <img src="media/art_palette_icon.png" style="width: 40px; height: 40px; margin-left: 25px;" alt="Icono de Paleta de Arte" class="main-footer__promotion-image" />
+            </figure>
+        </div>
+        <div class="main-footer__promotion-info">
+            <h4 class="main-footer__promotion-title">Descubre Nuevos Artistas</h4>
+            <p class="main-footer__promotion-description">Explora colecciones únicas y encuentra tu próxima obra maestra</p>
+        </div>
+    </div>
+
+    <div class="main-footer__promotion">
+        <div class="main-footer__promotion-image-wrapper">
+            <figure class="img__wrapper">
+                <img src="media/art_exhibition_icon.png" style="width: 40px; height: 40px; margin-left: 25px;" alt="Icono de Exposición" class="main-footer__promotion-image" />
+            </figure>
+        </div>
+        <div class="main-footer__promotion-info">
+            <h4 class="main-footer__promotion-title">Participa en Eventos de Arte</h4>
+            <p class="main-footer__promotion-description">Asiste a eventos y exposiciones exclusivas en todo el mundo</p>
+        </div>
+    </div>
+</nav>
+
         
 <!--Aqui inicia nuestro footer -->
 
@@ -429,7 +463,7 @@ if (isset($_SESSION['username'])) {
 <ul class="social-links footer__social">
     <li class="footer__social__img"><a target="_blank"
             aria-label="follow us on Facebook, opens a new window" class=""
-            href="https://www.facebook.com/"><span class="icon--svg icon--svg--gray-fill icon--facebook "
+            href="https://www.facebook.com/"><span class="icon--svgg icon--svgg--gray-fill icon--facebook "
                 aria-hidden="true">
                 <!--Facebook -->
                 <svg xmlns="http://www.w3.org/2000/s" width="18"
@@ -442,7 +476,7 @@ if (isset($_SESSION['username'])) {
     <li class="footer__social__img"><a target="_blank"
             aria-label="follow us on Twitter, opens a new window" class=""
             href="https://twitter.com/"><span
-                class="icon--svg icon--svg--gray-fill icon--twitter"
+                class="icon--svgg icon--svgg--gray-fill icon--twitter"
                 aria-hidden="true">
                 <!--twitter-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -455,7 +489,7 @@ if (isset($_SESSION['username'])) {
     <li class="footer__social__img"><a target="_blank"
             aria-label="follow us on Instagram, opens a new window" class=""
             href="https://www.instagram.com/"><span
-                class="icon--svg icon--svg--gray-fill" aria-hidden="true">
+                class="icon--svgg icon--svgg--gray-fill" aria-hidden="true">
                 <!--Instagram-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                     viewBox="0 0 18 18">
@@ -469,7 +503,7 @@ if (isset($_SESSION['username'])) {
         <a target="_blank"
             aria-label="follow us on Tumblr, opens a new window" class=""
             href="https://www.tumblr.com/">
-            <span class="icon--svg icon--svg--gray-fill" aria-hidden="true">
+            <span class="icon--svgg icon--svgg--gray-fill" aria-hidden="true">
                 <!--Tumblr-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18"
                     viewBox="0 0 11 18">
@@ -483,7 +517,7 @@ if (isset($_SESSION['username'])) {
         <a target="_blank"
             aria-label="follow us on Youtube, opens a new window" class=""
             href="https://www.youtube.com/">
-            <span class="icon--svg icon--svg--gray-fill" aria-hidden="true">
+            <span class="icon--svgg icon--svgg--gray-fill" aria-hidden="true">
                 <!--Youtube-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="15"
                     viewBox="0 0 21 15">
@@ -495,7 +529,7 @@ if (isset($_SESSION['username'])) {
                 </svg></span></a></li>
     <li class="footer__social__img"><a target="_blank"
             aria-label="follow us on Snapchat, opens a new window" class=""
-             href="https://www.snapchat.com/"><span class="icon--svg icon--svg--gray-fill" aria-hidden="true">
+             href="https://www.snapchat.com/"><span class="icon--svgg icon--svgg--gray-fill" aria-hidden="true">
                 <!--Snaptchat-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17"
                     viewBox="0 0 19 17">
@@ -506,7 +540,7 @@ if (isset($_SESSION['username'])) {
                 </svg></span></a></li>
     <li class="footer__social__img"><a target="_blank"
             aria-label="follow us on Pinterest, opens a new window" class=""
-            href="https://www.pinterest.com.mx/"><span class="icon--svg icon--svg--gray-fill" aria-hidden="true">
+            href="https://www.pinterest.com.mx/"><span class="icon--svgg icon--svgg--gray-fill" aria-hidden="true">
                 <!--Pinterest-->
                 <svg xmlns="http://www.w3.org/2000/sv" width="18" height="16"
                     viewBox="0 0 18 16">
@@ -518,22 +552,12 @@ if (isset($_SESSION['username'])) {
 </ul>
 </nav>
 </div>
-<p class="copy_right">&copy; 2023 Gands Movies. Todos los derechos reservados. Prohibida la reproducción sin autorización.</p>
+<p class="copy_right">&copy; 2023 Vaniofrénicos Espacio. Todos los derechos reservados. Prohibida la reproducción sin autorización.</p>
 </footer>
 
 </div>  
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script>
-    function togglePanel(panelId) {
-        var panel = document.getElementById(panelId);
-        if (panel.style.display === 'block') {
-            panel.style.display = 'none';
-        } else {
-            panel.style.display = 'block';
-        }
-    }
-</script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   </body>
 </html>
