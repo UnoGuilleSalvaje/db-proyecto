@@ -86,7 +86,7 @@ session_start();
 $host = 'localhost';
 $usuario_db = 'root';
 $contrasena_db = '';
-$nombre_db = 'baseinventario.sql';
+$nombre_db = 'baseinventario';
 
 $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db);
 
