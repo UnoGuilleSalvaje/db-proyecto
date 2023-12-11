@@ -257,7 +257,7 @@ if (isset($_SESSION['username'])) {
     <div class="row">
         <div class="col-md-6 col-lg-4">
             <div class="tool-card">
-                <img src="../../media/vision.webp" alt="Visión" style="width: 350px;">
+                <img src="../img/vision.jpg" alt="Visión" style="width: 300px; height: 200px;">
                 <h3>Visión</h3>
                 <p>Ser líderes globales en la promoción del arte vanguardista, ofreciendo una experiencia única y enriquecedora para cada apasionado del arte.</p>
                 <br>
@@ -265,7 +265,7 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="tool-card">
-                <img src="../../media/mision.jpg" alt="Misión" style="width: 350px;">
+                <img src="../img/mision.jpg" alt="Misión" style="width: 300px; height: 250px;"> 
                 <h3>Misión</h3>
                 <p>Proporcionar una plataforma para artistas innovadores, asegurando la diversidad y la accesibilidad de obras de arte de alta calidad, para que todos puedan explorar y apreciar.</p>
                 <br>
@@ -273,7 +273,7 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="tool-card">
-                <img src="../../media/objetivos.jpg" alt="Objetivo" style="width: 350px;">
+                <img src="../img/objetivo.jpg" alt="Objetivo" style="width: 300px; height: 200px;">
                 <h3>Objetivo</h3>
                 <p>Innovar constantemente en nuestra galería para hacer que la exploración y disfrute del arte contemporáneo sea una experiencia emocionante y accesible para todos.</p>
             </div>
