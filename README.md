@@ -1,2 +1,2 @@
-# proyecto-programacion
-Proyecto Final de Sistemas Web
+# proyecto-base de datos
+Proyecto Final de Base de Datos
