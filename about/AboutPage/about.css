@@ -25,7 +25,7 @@ body {
     margin: auto; /* Centra el contenedor horizontalmente */
 	position: relative;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	gap: 1em;
 	width: 800px;
 	height: 500px;
@@ -51,37 +51,30 @@ body {
 }
 
 .container:has(.box-1:hover) {
-	grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .container:has(.box-2:hover) {
-	grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1r 1fr 1fr 1fr 1fr;
 }
 
 .container:has(.box-3:hover) {
-	grid-template-columns: 1fr 1fr 3fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .container:has(.box-4:hover) {
-	grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr 1fr;
-}
-
-.container:has(.box-5:hover) {
-	grid-template-columns: 1fr 1fr 1fr 1fr 3fr 1fr 1fr;
-}
-.container:has(.box-6:hover) {
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 3fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 .container:has(.box-7:hover) {
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .box:nth-child(odd) {
-	transform: translateY(-16px);
+	transform: translateY(-15px);
 }
 
 .box:nth-child(even) {
-	transform: translateY(16px);
+	transform: translateY(15px);
 }
 
 .box::after {
