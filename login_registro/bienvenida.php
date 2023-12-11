@@ -53,7 +53,14 @@
         /* Nuevos estilos */
 
         html {
-            background: #550703;
+            
+            background-image: url(../imagesGACH/fondoBienvenida.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            /* 70 brillo de la img */
+            background-color: rgba(0, 0, 0, 0.50);
             width: 100%;
             height: 100%;
             overflow-x: hidden;
@@ -65,32 +72,32 @@
         }
 
         .marvel {
-            border: solid 1px #fff;
+            
             padding: 8px 4px 0 0;
-            animation: zoomOut 9s ease-in-out 1; /* Solo una iteración */
+            animation: zoomOut 5s ease-in-out 1; /* Solo una iteración */
             margin: auto auto;
             text-align: center;
-            color: #fff;
+            color: white;
             width: 1000px;
             margin-top: 50px;
-            font-size: 15em;
+            font-size: 11em;
             line-height: .80;
             font-family: "Benton Sans Ex Comp Bla", sans-serif;
         }
 
         .studios {
-            font-family: "Orbitron", sans-serif;
-            animation: zoomOut 9s ease-in-out 1; /* Solo una iteración */
+            font-size: 2em;
+            animation: zoomOut 5s ease-in-out 1; /* Solo una iteración */
             font-weight: bolder;
-            color: #fff;
-            letter-spacing: 67px;
+            color: red;
+            letter-spacing: 30px;
             text-align: center;
             position: relative;
             margin: 7px 15px 7px 85px;
         }
 
         body {
-            background: #550703;
+           background: none;
         }
     </style>
 </head>
@@ -105,8 +112,8 @@
     if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
         $username = $_SESSION['username'];
         echo "<div class='wrapper'>";
-        echo "<div class='marvel fadeOut'>GANDS</div>";
-        echo "<div class='studios fadeOut'>Movies</div><br>";
+        echo "<div class='marvel fadeOut'>Vaniofrénicos</div>";
+        echo "<div class='studios fadeOut'>Arts</div><br>";
         echo "<div  class='studios fadeOut'>!Bienvenido: </div><br>";
         echo "<div style='color: yellow'; class='studios fadeOut'> $username</div><br>";
         echo "<p class='studios fadeOut'><a href='../index.php'>Continuar</a></p>";
