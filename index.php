@@ -216,7 +216,7 @@ echo '<p class="maravillas-title"><i class="' . $icono . '" style="color: #58bfb
                                             </li>
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-6"
                                                     class="desktopNav__link mvl-flyout-button"
-                                                    href="Subasta/subasta.php">Subasta</a>
+                                                    href="Subasta/index.php">Subasta</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-6">
                                                     
                                                 </div>
