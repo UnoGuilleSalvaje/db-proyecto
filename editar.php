@@ -57,7 +57,7 @@ select {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: 1px solid #ec1d24; /* Rojo GANDS Logo */
+    border: 1px solid #267b7d; /* Rojo GANDS Logo */
     background-color: #1e1e1e; /* Gris página */
     color: #ffffff;
 }
@@ -78,7 +78,7 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #ec1d24; /* Rojo GANDS Logo */
+    background-color: #267b7d; /* Rojo GANDS Logo */
 }
 
 /* Agregando un poco de espacio alrededor del formulario */
@@ -322,7 +322,7 @@ document.querySelectorAll('.img-table').forEach(function(img) {
 
                     <?php
 // Conexión a la base de datos (asegúrate de reemplazar con tus propios detalles de conexión)
-$conexion = new mysqli('localhost', 'root', '', 'db_peliculas');
+$conexion = new mysqli('localhost', 'root', '', 'db_arte');
 
 // Verifica si se envió el formulario de edición
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -332,7 +332,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Aquí deberías procesar la carga del archivo de la imagen si es necesario
     
     // Prepara la consulta SQL para actualizar los datos
-    $stmt = $conexion->prepare("UPDATE peliculas SET nombre = ?, descripcion = ?, cantidad_existencia = ?, agotado = ?, precio = ?, imagen = ?, tiene_descuento = ?, descuento = ?, genero = ? WHERE id = ?");
+    $stmt = $conexion->prepare("UPDATE arte SET nombre = ?, descripcion = ?, cantidad_existencia = ?, agotado = ?, precio = ?, imagen = ?, tiene_descuento = ?, descuento = ?, genero = ? WHERE id = ?");
     $stmt->bind_param("ssidsiisdi", $nombre, $descripcion, $cantidad_existencia, $agotado, $precio, $imagen, $tiene_descuento, $descuento, $genero, $id);
     
     // Ejecuta la consulta

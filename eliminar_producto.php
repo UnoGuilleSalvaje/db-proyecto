@@ -60,7 +60,7 @@ select {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: 1px solid #ec1d24; /* Rojo GANDS Logo */
+    border: 1px solid #267b7d; /* Rojo GANDS Logo */
     background-color: #1e1e1e; /* Gris página */
     color: #ffffff;
 }
@@ -71,7 +71,7 @@ button {
     margin: auto; /* Centra el botón horizontalmente */
     width: 40%;
     padding: 10px;
-    background-color: #e62429; /* Rojo botón */
+    background-color: #267b7d; /* Rojo botón */
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -81,7 +81,7 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #ec1d24; /* Rojo GANDS Logo */
+    background-color: #267b7d; /* Rojo GANDS Logo */
 }
 
 /* Agregando un poco de espacio alrededor del formulario */
@@ -154,9 +154,9 @@ document.querySelectorAll('.img-table').forEach(function(img) {
             <div id="page-wrapper" class="page__body">
                 <header class="page__header">
 
-                    <!-- Barra de Navegación -->
+                                      <!-- Barra de Navegación ----------------------------------------------------- -->
 
-                    <nav class="navigation__container">
+                                      <nav class="navigation__container">
                         <div class="navigation__container--navs 
                             navigation__container--fixed 
                             navigation__container--top">
@@ -167,25 +167,51 @@ document.querySelectorAll('.img-table').forEach(function(img) {
                                         <div class="desktopNav__tabAndLogoContainer">
                                         <div class="insider desktopNav__tabContainer">
     <div class="insider desktopNav__tab">
-        <img src="media/10307911.png" alt="" style="width: 20px; height: 20px; margin-top: 13px; margin-left: 7px !important;">
+       
         <div class="user-menu__links">
 
             <?php
             // Verifica si el usuario está logueado
             if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-                // Usuario logueado
-                echo '<p class="maravillas-title">Bienvenido, ' . htmlspecialchars($_SESSION['username']) . '</p>';
+date_default_timezone_set('America/Mexico_City');
+// Usuario logueado
+$hora = date("H");
+$saludo = "";
+$icono = "";
+
+if ($hora < 12) {
+    $saludo = "Buenos días";
+    $icono = "fas fa-sun"; // Icono de sol para la mañana
+} elseif ($hora < 18) {
+    $saludo = "Buenas tardes";
+    $icono = "fas fa-cloud-sun"; // Icono de sol parcial para la tarde
+} else {
+    $saludo = "Buenas noches";
+    $icono = "fas fa-moon"; // Icono de luna para la noche
+}
+
+echo '<p class="maravillas-title"><i class="' . $icono . '" style="color: #58bfb5;"></i> ' . $saludo . ', ' . htmlspecialchars($_SESSION['username']) . '</p>';
+
             } else {
                 // Usuario no logueado
                 echo '<a class="user-menu-tab sign-in" href="login_registro/index.php">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">INICIAR SESIÓN </font></font></a>
-                        <span class="user-menu-tab separator">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">| </font></font></span>
-                        <a class="user-menu-tab join-dropdown" href="login_registro/index.php">
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">REGISTRARSE</font>
-                        </font></a>';
+        <i class="fas fa-sign-in-alt"></i>
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> INICIAR SESIÓN</font>
+        </font>
+      </a>
+      <span class="user-menu-tab separator">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> | </font>
+        </font>
+      </span>
+      <a class="user-menu-tab join-dropdown" href="login_registro/index.php">
+        <i class="fas fa-user-plus"></i>
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"> REGISTRARSE</font>
+        </font>
+      </a>';
+
             }
             ?>
             <span class="user-menu-tab username"></span>
@@ -196,7 +222,7 @@ document.querySelectorAll('.img-table').forEach(function(img) {
                                             
                                             <a class="desktopNav__logo" href="index.php">
                                                 <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true">
-                                                    <img src="media/GANDS MOVIES ORIGINAL.png" alt=""><!--LOGO DEL SITIO-->
+                                                    <img src="media/v.png" alt=""><!--LOGO DEL SITIO-->
                                                 </span>
                                             </a>
                                             
@@ -205,13 +231,13 @@ document.querySelectorAll('.img-table').forEach(function(img) {
         <?php if (isset($_SESSION['username'])): ?>
             <div class="searchPromo__wrap">
                 <br><br>
-                <a href="logout.php" style="margin-right: 15px;"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                <a href="logout.php" class="logout-link" style="margin-right: 15px;"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
         <?php else: ?>
             <!-- Usuario no logueado: Muestra la sección de login -->
-            <a class="searchPromo desktopNav__tab" href="login.php">
-                <img class="searchPromo__image" src="media/tickets.png" alt="GandsMovies logo" />
-                <span class="maravillas-title">Descubre más</span>
+            <a class="searchPromo desktopNav__tab" style="vertical-align: inherit;" href="login_registro/index.php">
+                <img class="searchPromo__image" src="media/tickets.png" alt="logo" />
+                <span class="" style="text-decoration: none;">¡Únete!</span>
             </a>
         <?php endif; ?>
     </div>
@@ -252,28 +278,22 @@ document.querySelectorAll('.img-table').forEach(function(img) {
                                             </li>
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-1"
                                                     class="desktopNav__link mvl-flyout-button"
-                                                    href="tienda.php">Películas</a>
+                                                    href="tienda.php">Galería</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-1">
                                                 
                                                 </div>
                                             </li>
                                             <li class="desktopNav__linkWrapper ">
-                                                <a class="desktopNav__link" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Géneros
-                                                </a>
-                                                <ul class="dropdown-menu nav-flyout-container-2" aria-labelledby="dropdownMenuButton1">
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Accion">Acción</a></li>
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Comedia">Comedia</a></li>
-                                                <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Drama">Drama</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-3"
-                                                    class="desktopNav__link mvl-flyout-button"
-                                                    href="#">Productos</a>
-                                                <div class="desktopNav__flyout-container nav-flyout-container-3">
-                                                 
-                                                </div>
-                                            </li>
+                            <a class="desktopNav__link" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu nav-flyout-container-2" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Retrato">Retratos</a></li>
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Paisaje">Paisajes</a></li>
+                            <li><a class="dropdown-item" href="mostrar_peliculas.php?genero=Bodegón">Bodegón</a></li>
+                            </ul>
+                        </li>
+                                            
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-4"
                                                     class="desktopNav__link mvl-flyout-button" href="about/AboutPage/about.php">Acerca de</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-4">
@@ -289,7 +309,14 @@ document.querySelectorAll('.img-table').forEach(function(img) {
                                             </li>
                                             <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-6"
                                                     class="desktopNav__link mvl-flyout-button"
-                                                    href="#">Contáctanos</a>
+                                                    href="Contactanos/index.php">Contáctanos</a>
+                                                <div class="desktopNav__flyout-container nav-flyout-container-6">
+                                                    
+                                                </div>
+                                            </li>
+                                            <li class="desktopNav__linkWrapper"><a id="mvl-flyout-button-6"
+                                                    class="desktopNav__link mvl-flyout-button"
+                                                    href="Subasta/subasta.php">Subasta</a>
                                                 <div class="desktopNav__flyout-container nav-flyout-container-6">
                                                     
                                                 </div>
@@ -322,13 +349,15 @@ document.querySelectorAll('.img-table').forEach(function(img) {
                         </div>
                     </nav>
 
+                <!-- Fin de la barra de Navegación ---------------------------------------------------------------- -->
+                <br><br>
 
 <?php
 // Conexión a la base de datos (asegúrate de reemplazar con tus propios detalles de conexión)
 $servidor = 'localhost';
 $cuenta = 'root';
 $password = '';
-$bd = 'db_peliculas';
+$bd = 'db_arte';
 //Se establece una conexión con la base de datos MySQL 
 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
@@ -340,7 +369,7 @@ if ($conexion->connect_error) {
 $producto = null;
 
 // Consulta para obtener todos los productos
-$sql = "SELECT id, nombre FROM peliculas";
+$sql = "SELECT id, nombre FROM arte";
 $resultado = $conexion->query($sql);
 
 // Verifica si la consulta tiene resultados
@@ -366,7 +395,7 @@ if ($resultado->num_rows > 0) {
 if (isset($_POST['seleccionar_producto']) && !empty($_POST['producto_id'])) {
     $producto_id = $_POST['producto_id'];
     // Consulta para obtener los detalles del producto seleccionado
-    $sql = "SELECT * FROM peliculas WHERE id = ?";
+    $sql = "SELECT * FROM arte WHERE id = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("i", $producto_id);
     $stmt->execute();

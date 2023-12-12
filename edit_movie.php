@@ -6,13 +6,13 @@
     <style>
 
     body{
-        background-image: url(imagesGACH/fondo3.jpg);
+        background-image: url(media/fondo3.jpg);
         background-size: cover; /* Asegura que la imagen de fondo cubra todo el espacio disponible */
     }
         .alert-custom {
     background-color: #1e1e1e;
     color: #ffffff;
-    border-color: #ec1d24;
+    border-color: #267b7d;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -57,7 +57,7 @@
 
 <?php
 // Conexión a la base de datos (asegúrate de reemplazar con tus propios detalles de conexión)
-$conexion = new mysqli('localhost', 'root', '', 'db_peliculas');
+$conexion = new mysqli('localhost', 'root', '', 'db_arte');
 
 // Verifica si se envió el formulario de edición
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     // Prepara la consulta SQL para actualizar los datos
-    $stmt = $conexion->prepare("UPDATE peliculas SET nombre = ?, descripcion = ?, cantidad_existencia = ?, agotado = ?, precio = ?, imagen = ?, tiene_descuento = ?, descuento = ?, genero = ? WHERE id = ?");
+    $stmt = $conexion->prepare("UPDATE arte SET nombre = ?, descripcion = ?, cantidad_existencia = ?, agotado = ?, precio = ?, imagen = ?, tiene_descuento = ?, descuento = ?, genero = ? WHERE id = ?");
     $stmt->bind_param("ssiidsdiss", $nombre, $descripcion, $cantidad_existencia, $agotado, $precio, $imagen, $tiene_descuento, $descuento, $genero, $id);
        
     // Ejecuta la consulta

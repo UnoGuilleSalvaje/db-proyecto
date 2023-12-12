@@ -6,13 +6,13 @@
     <style>
 
     body{
-        background-image: url(imagesGACH/fondo3.jpg);
+        background-image: url(media/fondo3.jpg);
         background-size: cover; /* Asegura que la imagen de fondo cubra todo el espacio disponible */
     }
         .alert-custom {
     background-color: #1e1e1e;
     color: #ffffff;
-    border-color: #ec1d24;
+    border-color: #267b7d;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -57,7 +57,7 @@
 
 <?php
 // Conexión a la base de datos (asegúrate de reemplazar con tus propios detalles de conexión)
-$conexion = new mysqli('localhost', 'root', '', 'db_peliculas');
+$conexion = new mysqli('localhost', 'root', '', 'db_arte');
 
 // Verifica si se envió el formulario de edición
 // Recupera el ID del formulario
@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $id = $_POST['id_producto'];
 
 // Prepara la consulta SQL para eliminar los datos
-$stmt = $conexion->prepare("DELETE FROM peliculas WHERE id = ?");
+$stmt = $conexion->prepare("DELETE FROM arte WHERE id = ?");
 $stmt->bind_param("i", $id);
     // Ejecuta la consulta
     if ($stmt->execute()) {
         ?>
             <div class="alert alert-custom" role="alert">
-    <strong>Éxito!</strong> Película eliminada correctamente <br><br>
+    <strong>Éxito!</strong> Obra eliminada correctamente <br><br>
     <button type="button" class="btn btn-custom i" onclick="window.location.href='index.php';">
         <i class="fas fa-home"></i>Inicio
     </button>

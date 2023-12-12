@@ -6,13 +6,13 @@
     <style>
 
     body{
-        background-image: url(imagesGACH/fondo3.jpg);
+        background-image: url(media/fondo3.jpg);
         background-size: cover; /* Asegura que la imagen de fondo cubra todo el espacio disponible */
     }
         .alert-custom {
     background-color: #1e1e1e;
     color: #ffffff;
-    border-color: #ec1d24;
+    border-color: #267b7d;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['imagen'])) {
     $servidor = 'localhost';
     $cuenta = 'root';
     $password = '';
-    $bd = 'db_peliculas';
+    $bd = 'db_arte';
     //Se establece una conexión con la base de datos MySQL 
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['imagen'])) {
 
 
     if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
-        $stmt = $conexion->prepare("INSERT INTO peliculas (nombre, descripcion, cantidad_existencia, agotado, precio, imagen, tiene_descuento, descuento, genero) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conexion->prepare("INSERT INTO arte (nombre, descripcion, cantidad_existencia, agotado, precio, imagen, tiene_descuento, descuento, genero) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssiddssds", $_POST['nombre'], $_POST['descripcion'], $_POST['cantidad_existencia'], $_POST['agotado'], $_POST['precio'], $nombreImagen, $_POST['tiene_descuento'], $_POST['descuento'], $_POST['genero']);
         
         if ($stmt->execute()) {

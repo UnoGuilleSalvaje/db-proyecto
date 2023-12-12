@@ -29,7 +29,17 @@ if (isset($_SESSION['username'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+    <style>
+        <?php if (!isset($_SESSION['username'])): ?>
+            .he {
+                margin-top: 0px;
+            }
+        <?php else: ?>
+            .he {
+                margin-top: 1600px;
+            }
+        <?php endif; ?>
+    </style>
 </head>
 <body>
 <div id="__next">
@@ -228,73 +238,13 @@ if (isset($_SESSION['username'])) {
                 <!-- Fin de la barra de Navegación ---------------------------------------------------------------- -->
 </header>
                     
-     <div class="container2 <?php echo $class; ?>">
-    <br>
-    <br>
-    <h1 style="text-align: center;">Acerca de Nosotros</h1>
-        Bienvenido a Vaniofrénicos, un espacio dedicado a la expresión artística única y provocativa. 
-        <br>
-        Nos enorgullece ser una galería de arte que desafía las convenciones y celebra la creatividad sin 
-        <br>restricciones.
-        <br>
-        Buscamos ir más allá de los límites tradicionales del arte. 
-        <br>
-        Nuestra misión es proporcionar una plataforma para las personas que desean explorar la dualidad entre cordura e insanidad, 
-        <br>llevándonos a lugares inexplorados de la mente humana.
-        <br>
-        ¡Conoce a nuestro equipo!
-    </div>
-    <br>
-
-    <br><br>
-    <div class="container2">
-        Explora nuestras exposiciones y descubre obras que desafían la percepción y cuestionan la realidad. 
-        <br>
-        Nuestro compromiso es crear un espacio inclusivo para todos aquellos que buscan la belleza en la diversidad del arte. 
-        <br>Vaniofrénicos es más que una galería, es un viaje a través de las mentes creativas y un escaparate de la expresión 
-        <br>artística en su forma más auténtica.
-        ¡Esperamos que disfrutes explorando nuestra galería y viendo obras de tus artistas favoritos!
-    </div>
-
-<br><br>
-
-    <h1 style="text-align: center;">Acerca de Vaniofrénicos</h1>
-<br>
-
-<div class="containerr">
-    <div class="row">
-        <div class="col-md-6 col-lg-4">
-            <div class="tool-card">
-                <img src="../img/vision.jpg" alt="Visión" style="width: 300px; height: 200px;">
-                <h3>Visión</h3>
-                <p>Ser líderes globales en la promoción del arte vanguardista, ofreciendo una experiencia única y enriquecedora para cada apasionado del arte.</p>
-                <br>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <div class="tool-card">
-                <img src="../img/mision.jpg" alt="Misión" style="width: 300px; height: 250px;">
-                <h3>Misión</h3>
-                <p>Proporcionar una plataforma para artistas innovadores, asegurando la diversidad y la accesibilidad de obras de arte de alta calidad, para que todos puedan explorar y apreciar.</p>
-                <br>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <div class="tool-card">
-                <img src="../img/objetivo.jpg" alt="Objetivo" style="width: 300px; height: 200px;">
-                <h3>Objetivo</h3>
-                <p>Innovar constantemente en nuestra galería para hacer que la exploración y disfrute del arte contemporáneo sea una experiencia emocionante y accesible para todos.</p>
-            </div>
-        </div>
-    </div>
-</div>
-                    </section>
+     <br><br>
             <!-- Empieza página-->
                     
      <div class="container2 <?php echo $class; ?>">
     <br>
     <br>
-    <h1 style="text-align: center;">Acerca de Nosotros</h1>
+    <h1 class="he" style="text-align: center;">Acerca de Nosotros</h1>
         Bienvenido a Vaniofrénicos, un espacio dedicado a la expresión artística única y provocativa. 
         <br>
         Nos enorgullece ser una galería de arte que desafía las convenciones y celebra la creatividad sin 
